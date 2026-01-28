@@ -241,7 +241,7 @@ const experiences: Experience[] = [
     period: "Summer 2021",
     logo: "/companies/innowi.jpg",
     bullets: [
-      "senior year of high school internship — built <b>Point of Sale devices</b> and deployed to restaurants. also wrote a lil <b>Java</b>",
+      "senior year of high school internship — built <b>Point of Sale devices</b> and deployed to restaurants. also wrote a lil <b>Java</b>.",
     ],
   },
 ];
