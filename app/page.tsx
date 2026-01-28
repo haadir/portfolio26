@@ -189,9 +189,9 @@ const experiences: Experience[] = [
     logo: "/companies/aws.jpg",
     pinned: true,
     bullets: [
-      "Contributed within the Data Center Automation organization to build internal tooling for data center health monitoring, supporting operations across nearly 1,000 data centers worldwide",
-      "Created an internal, team-specific package using AWS CDK (Python and TypeScript) to standardize CloudWatch alarm creation as part of an Operational Excellence initiative, defining a consistent alarm taxonomy by service ownership and severity levels",
-      "Expanded the team's service ownership from commercial AWS to Amazon Dedicated Cloud (ADC), re-architecting systems and performing extensive validation to prevent alarm data leakage between private ADC data centers and commercial environments",
+      "Contributed within the <b>Data Center Automation</b> organization to build internal tooling for data center health monitoring, supporting operations across nearly <b>1,000 data centers</b> worldwide",
+      "Created an internal, team-specific package using <b>AWS CDK</b> (Python and TypeScript) to standardize <b>CloudWatch</b> alarm creation as part of an <b>Operational Excellence</b> initiative, defining a consistent alarm taxonomy by service ownership and severity levels",
+      "Expanded the team's service ownership from commercial AWS to <b>Amazon Dedicated Cloud (ADC)</b>, re-architecting systems and performing extensive validation to prevent alarm data leakage between private ADC data centers and commercial environments; partnered with Controls and ADC teams, led <b>User Acceptance Testing (UAT)</b>, and enabled adoption by <b>100+ ADC engineers</b>",
     ],
   },
   {
@@ -203,8 +203,8 @@ const experiences: Experience[] = [
     period: "May 2024 – Aug 2024",
     logo: "/companies/bmc.png",
     bullets: [
-      "Analyzed previous server configurations using time series modeling, achieving a 19% improvement in fleet health and a 15% reduction in server downtime through fine-tuning the Llama 2 model",
-      "Leveraged Generative AI with tools like Kustomize to enhance Kubernetes deployments, drawing on historical user data and metrics such as server response time, CPU usage, and container health status",
+      "Analyzed previous server configurations using <b>time series modeling</b>, achieving a <b>19% improvement</b> in fleet health and a <b>15% reduction</b> in server downtime through fine-tuning the <b>Llama 2</b> model",
+      "Leveraged <b>Generative AI</b> with tools like <b>Kustomize</b> to enhance <b>Kubernetes</b> deployments, drawing on historical user data and metrics such as server response time, CPU usage, and container health status",
     ],
   },
   {
@@ -216,8 +216,32 @@ const experiences: Experience[] = [
     period: "May 2023 – Aug 2023",
     logo: "/companies/paypal.png",
     bullets: [
-      "Created a system using NodeJS and Braintree to smoothen the external app payment integration process for high volume merchants, enabling a smoother payment process for 100+ million users",
-      "Collaborated with 20+ merchants to enhance checkout page customization, optimizing payment interfaces by integrating fraud protection, alternative payment methods, and webhook automation",
+      "Created a system using <b>NodeJS</b> and <b>Braintree</b> to smoothen the external app payment integration process for high volume merchants, enabling a smoother payment process for <b>100+ million users</b>",
+      "Collaborated with <b>20+ merchants</b> to enhance checkout page customization, optimizing payment interfaces by integrating fraud protection, alternative payment methods, and webhook automation",
+    ],
+  },
+  {
+    id: "5",
+    company: "PayPal",
+    companyHandle: "paypal",
+    role: "Software Integration Engineering Intern",
+    location: "San Jose, CA",
+    period: "May 2022 – Aug 2022",
+    logo: "/companies/paypal.png",
+    bullets: [
+      "did the same stuff the summer before lol",
+    ],
+  },
+  {
+    id: "6",
+    company: "Innowi",
+    companyHandle: "innowi",
+    role: "Software Engineering Intern",
+    location: "San Jose, CA",
+    period: "Summer 2021",
+    logo: "/companies/innowi.jpg",
+    bullets: [
+      "senior year of high school internship — built <b>Point of Sale devices</b> and deployed to restaurants. also wrote a lil <b>Java</b>",
     ],
   },
 ];
@@ -272,7 +296,7 @@ function ExperienceCard({ experience }: { experience: Experience }) {
             {experience.bullets.map((bullet, index) => (
               <li key={index} className="text-[15px] leading-5 text-[#e7e9ea] flex gap-2">
                 <span className="text-[#1d9bf0] mt-1.5 flex-shrink-0">•</span>
-                <span>{bullet}</span>
+                <span dangerouslySetInnerHTML={{ __html: bullet }} className="[&_b]:font-semibold [&_b]:text-white" />
               </li>
             ))}
           </ul>
@@ -370,41 +394,41 @@ export default function Home() {
 
           {/* Bio */}
           <div className="mt-3 text-[15px] leading-5">
-            <p>swe{" "}
-              <span className="relative inline-block group">
-                <span className="text-[#1d9bf0] cursor-pointer hover:underline">@aws</span>
-                <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
-                  <div className="bg-[#16181c] border border-[#2f3336] rounded-xl p-3 shadow-xl">
-                    <Image
-                      src="/companies/aws.jpg"
-                      alt="AWS"
-                      width={200}
-                      height={200}
-                      className="rounded-lg"
-                    />
-                    <p className="text-[13px] text-[#e7e9ea] mt-2 font-bold">Amazon Web Services</p>
-                    <p className="text-[12px] text-[#71767b]">@aws</p>
-                  </div>
-                </div>
+            <span>swe{" "}</span>
+            <span className="relative inline-block group">
+              <span className="text-[#1d9bf0] cursor-pointer hover:underline">@aws</span>
+              <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                <span className="block bg-[#16181c] border border-[#2f3336] rounded-xl p-3 shadow-xl">
+                  <Image
+                    src="/companies/aws.jpg"
+                    alt="AWS"
+                    width={200}
+                    height={200}
+                    className="rounded-lg"
+                  />
+                  <span className="block text-[13px] text-[#e7e9ea] mt-2 font-bold">Amazon Web Services</span>
+                  <span className="block text-[12px] text-[#71767b]">@aws</span>
+                </span>
               </span>
-              {" "}|{" "}
-              <span className="relative inline-block group/usc">
-                <span className="text-[#1d9bf0] cursor-pointer hover:underline">@usc</span>
-                <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 opacity-0 group-hover/usc:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
-                  <div className="bg-[#16181c] border border-[#2f3336] rounded-xl p-3 shadow-xl">
-                    <Image
-                      src="/companies/usc.png"
-                      alt="USC"
-                      width={200}
-                      height={200}
-                      className="rounded-lg"
-                    />
-                    <p className="text-[13px] text-[#e7e9ea] mt-2 font-bold">University of Southern California</p>
-                    <p className="text-[12px] text-[#71767b]">@usc</p>
-                  </div>
-                </div>
+            </span>
+            <span>{" "}|{" "}</span>
+            <span className="relative inline-block group/usc">
+              <span className="text-[#1d9bf0] cursor-pointer hover:underline">@usc</span>
+              <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 opacity-0 group-hover/usc:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                <span className="block bg-[#16181c] border border-[#2f3336] rounded-xl p-3 shadow-xl">
+                  <Image
+                    src="/companies/usc.png"
+                    alt="USC"
+                    width={200}
+                    height={200}
+                    className="rounded-lg"
+                  />
+                  <span className="block text-[13px] text-[#e7e9ea] mt-2 font-bold">University of Southern California</span>
+                  <span className="block text-[12px] text-[#71767b]">@usc</span>
+                </span>
               </span>
-              {" "}alum</p>
+            </span>
+            <span>{" "}alum</span>
             <p className="mt-1 text-[#71767b]">Building distributed systems at scale ☁️ | Previously tinkering with ML & full-stack</p>
           </div>
 
