@@ -117,13 +117,20 @@ const MubeIcon = () => (
   </svg>
 );
 
+const XIcon = () => (
+  <svg viewBox="0 0 24 24" className="w-[26px] h-[26px] fill-current">
+    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+  </svg>
+);
+
 // Sidebar Component
 function Sidebar() {
   const navItems = [
-    { icon: <ResumeIcon />, label: "Resume", href: "#" },
+    { icon: <ResumeIcon />, label: "Resume", href: "/Razzak_Haadi_Resume_2026.pdf" },
     { icon: <EmailIcon />, label: "Email", href: "mailto:haadirazzak@gmail.com" },
     { icon: <GithubIcon />, label: "Github", href: "https://github.com/haadir" },
-    { icon: <LinkedInIcon />, label: "LinkedIn", href: "https://linkedin.com/in/haadirazzak" },
+    { icon: <LinkedInIcon />, label: "LinkedIn", href: "https://www.linkedin.com/in/haadirazzak/" },
+    { icon: <XIcon />, label: "X", href: "https://x.com/haadirazzak" },
     { icon: <MubeIcon />, label: "Mube", href: "#", badge: "soon" },
   ];
 
@@ -179,7 +186,7 @@ const experiences: Experience[] = [
     role: "Software Development Engineer",
     location: "Seattle, WA",
     period: "Aug 2025 – Present",
-    logo: "☁️",
+    logo: "/companies/aws.jpg",
     pinned: true,
     bullets: [
       "Contributed within the Data Center Automation organization to build internal tooling for data center health monitoring, supporting operations across nearly 1,000 data centers worldwide",
@@ -194,7 +201,7 @@ const experiences: Experience[] = [
     role: "Machine Learning Engineer Intern",
     location: "Santa Clara, CA",
     period: "May 2024 – Aug 2024",
-    logo: "🤖",
+    logo: "/companies/bmc.png",
     bullets: [
       "Analyzed previous server configurations using time series modeling, achieving a 19% improvement in fleet health and a 15% reduction in server downtime through fine-tuning the Llama 2 model",
       "Leveraged Generative AI with tools like Kustomize to enhance Kubernetes deployments, drawing on historical user data and metrics such as server response time, CPU usage, and container health status",
@@ -207,7 +214,7 @@ const experiences: Experience[] = [
     role: "Software Integration Engineering Intern",
     location: "San Jose, CA",
     period: "May 2023 – Aug 2023",
-    logo: "💳",
+    logo: "/companies/paypal.png",
     bullets: [
       "Created a system using NodeJS and Braintree to smoothen the external app payment integration process for high volume merchants, enabling a smoother payment process for 100+ million users",
       "Collaborated with 20+ merchants to enhance checkout page customization, optimizing payment interfaces by integrating fraud protection, alternative payment methods, and webhook automation",
@@ -227,8 +234,14 @@ function ExperienceCard({ experience }: { experience: Experience }) {
       <div className="flex gap-3">
         {/* Company Logo */}
         <div className="flex-shrink-0">
-          <div className="w-10 h-10 rounded-full bg-[#2f3336] overflow-hidden flex items-center justify-center text-xl">
-            {experience.logo}
+          <div className="w-10 h-10 rounded-full bg-[#2f3336] overflow-hidden">
+            <Image
+              src={experience.logo}
+              alt={experience.company}
+              width={40}
+              height={40}
+              className="w-full h-full object-cover"
+            />
           </div>
         </div>
         
@@ -265,22 +278,10 @@ function ExperienceCard({ experience }: { experience: Experience }) {
           </ul>
           
           {/* Actions */}
-          <div className="flex items-center justify-between mt-3 max-w-[425px] text-[#71767b]">
+          <div className="flex items-center gap-8 mt-3 text-[#71767b]">
             <button className="flex items-center gap-2 group">
               <div className="p-2 -m-2 rounded-full group-hover:bg-[#1d9bf0]/10 group-hover:text-[#1d9bf0] transition-colors">
                 <CommentIcon />
-              </div>
-            </button>
-            
-            <button className="flex items-center gap-2 group">
-              <div className="p-2 -m-2 rounded-full group-hover:bg-[#00ba7c]/10 group-hover:text-[#00ba7c] transition-colors">
-                <RetweetIcon />
-              </div>
-            </button>
-            
-            <button className="flex items-center gap-2 group">
-              <div className="p-2 -m-2 rounded-full group-hover:bg-[#f91880]/10 group-hover:text-[#f91880] transition-colors">
-                <HeartIcon />
               </div>
             </button>
             
@@ -289,15 +290,6 @@ function ExperienceCard({ experience }: { experience: Experience }) {
                 <ViewsIcon />
               </div>
             </button>
-            
-            <div className="flex items-center gap-1">
-              <button className="p-2 -m-2 rounded-full hover:bg-[#1d9bf0]/10 hover:text-[#1d9bf0] transition-colors">
-                <BookmarkIcon />
-              </button>
-              <button className="p-2 -m-2 rounded-full hover:bg-[#1d9bf0]/10 hover:text-[#1d9bf0] transition-colors">
-                <ShareIcon />
-              </button>
-            </div>
           </div>
         </div>
       </div>
@@ -332,25 +324,21 @@ export default function Home() {
               <ArrowLeftIcon />
             </button>
             <div>
-              <h1 className="font-bold text-xl leading-6">Haadi Razzak</h1>
+              <h1 className="text-xl leading-6 italic" style={{ fontFamily: "'PP Editorial New', serif", fontWeight: 800 }}>Haadi Razzak</h1>
               <p className="text-[13px] text-[#71767b]">127 posts</p>
             </div>
           </div>
         </header>
 
         {/* Banner */}
-        <div className="h-[200px] bg-gradient-to-br from-[#1a1a2e] via-[#16213e] to-[#0f3460] relative overflow-hidden">
-          {/* Decorative elements */}
-          <div className="absolute inset-0 opacity-30">
-            <div className="absolute top-10 left-10 w-32 h-32 bg-[#1d9bf0] rounded-full blur-3xl" />
-            <div className="absolute bottom-10 right-10 w-40 h-40 bg-[#7c3aed] rounded-full blur-3xl" />
-          </div>
-          {/* Grid pattern overlay */}
-          <div className="absolute inset-0 opacity-10" style={{
-            backgroundImage: `linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px),
-                              linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px)`,
-            backgroundSize: '20px 20px'
-          }} />
+        <div className="h-[200px] relative overflow-hidden">
+          <Image
+            src="/background.jpg"
+            alt="Profile banner"
+            fill
+            className="object-cover"
+            priority
+          />
         </div>
 
         {/* Profile Section */}
@@ -358,23 +346,23 @@ export default function Home() {
           {/* Avatar */}
           <div className="absolute -top-[67px] left-4">
             <div className="w-[134px] h-[134px] rounded-full border-4 border-black bg-[#2f3336] overflow-hidden">
-              <div className="w-full h-full bg-gradient-to-br from-[#667eea] to-[#764ba2] flex items-center justify-center text-white text-5xl font-bold">
-                H
-              </div>
+              <Image
+                src="/pfp.png"
+                alt="Haadi Razzak"
+                width={134}
+                height={134}
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
 
-          {/* Edit Profile Button */}
-          <div className="flex justify-end pt-3 pb-12">
-            <button className="px-4 py-1.5 rounded-full border border-[#536471] font-bold text-[15px] hover:bg-white/10 transition-colors">
-              Edit profile
-            </button>
-          </div>
+          {/* Spacer for avatar overlap */}
+          <div className="pt-3 pb-16" />
 
           {/* Name & Handle */}
           <div className="mt-1">
             <div className="flex items-center gap-1">
-              <h2 className="font-extrabold text-xl">Haadi Razzak</h2>
+              <h2 className="text-xl italic" style={{ fontFamily: "'PP Editorial New', serif", fontWeight: 800 }}>Haadi Razzak</h2>
               <VerifiedBadge />
             </div>
             <p className="text-[#71767b] text-[15px]">@haadirazzak</p>
@@ -382,7 +370,41 @@ export default function Home() {
 
           {/* Bio */}
           <div className="mt-3 text-[15px] leading-5">
-            <p>swe <span className="text-[#1d9bf0]">@aws</span> | <span className="text-[#1d9bf0]">@usc</span> alum</p>
+            <p>swe{" "}
+              <span className="relative inline-block group">
+                <span className="text-[#1d9bf0] cursor-pointer hover:underline">@aws</span>
+                <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                  <div className="bg-[#16181c] border border-[#2f3336] rounded-xl p-3 shadow-xl">
+                    <Image
+                      src="/companies/aws.jpg"
+                      alt="AWS"
+                      width={200}
+                      height={200}
+                      className="rounded-lg"
+                    />
+                    <p className="text-[13px] text-[#e7e9ea] mt-2 font-bold">Amazon Web Services</p>
+                    <p className="text-[12px] text-[#71767b]">@aws</p>
+                  </div>
+                </div>
+              </span>
+              {" "}|{" "}
+              <span className="relative inline-block group/usc">
+                <span className="text-[#1d9bf0] cursor-pointer hover:underline">@usc</span>
+                <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 opacity-0 group-hover/usc:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                  <div className="bg-[#16181c] border border-[#2f3336] rounded-xl p-3 shadow-xl">
+                    <Image
+                      src="/companies/usc.png"
+                      alt="USC"
+                      width={200}
+                      height={200}
+                      className="rounded-lg"
+                    />
+                    <p className="text-[13px] text-[#e7e9ea] mt-2 font-bold">University of Southern California</p>
+                    <p className="text-[12px] text-[#71767b]">@usc</p>
+                  </div>
+                </div>
+              </span>
+              {" "}alum</p>
             <p className="mt-1 text-[#71767b]">Building distributed systems at scale ☁️ | Previously tinkering with ML & full-stack</p>
           </div>
 
@@ -398,7 +420,7 @@ export default function Home() {
             </div>
             <div className="flex items-center gap-1">
               <CalendarIcon />
-              <span>Joined April 2024</span>
+              <span>Joined Earth April 2003</span>
             </div>
           </div>
 
