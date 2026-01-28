@@ -86,99 +86,149 @@ const PinIcon = () => (
   </svg>
 );
 
-type TabType = "posts" | "experiences" | "projects" | "highlights" | "media";
+// Sidebar Icons
+const ResumeIcon = () => (
+  <svg viewBox="0 0 24 24" className="w-[26px] h-[26px] fill-current">
+    <path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zM6 20V4h7v5h5v11H6zm2-6h8v2H8v-2zm0-3h8v2H8v-2zm0 6h5v2H8v-2z" />
+  </svg>
+);
 
-interface Post {
-  id: string;
-  author: {
-    name: string;
-    handle: string;
-    avatar: string;
-    verified?: boolean;
-  };
-  content: string;
-  timestamp: string;
-  stats: {
-    comments: number;
-    retweets: number;
-    likes: number;
-    views: string;
-  };
-  pinned?: boolean;
-  media?: string;
+const EmailIcon = () => (
+  <svg viewBox="0 0 24 24" className="w-[26px] h-[26px] fill-current">
+    <path d="M1.998 5.5c0-1.381 1.119-2.5 2.5-2.5h15c1.381 0 2.5 1.119 2.5 2.5v13c0 1.381-1.119 2.5-2.5 2.5h-15c-1.381 0-2.5-1.119-2.5-2.5v-13zm2.5-.5c-.276 0-.5.224-.5.5v.511l8 5.25 8-5.25V5.5c0-.276-.224-.5-.5-.5h-15zm15.5 2.234l-8 5.25-8-5.25V18.5c0 .276.224.5.5.5h15c.276 0 .5-.224.5-.5V7.234z" />
+  </svg>
+);
+
+const GithubIcon = () => (
+  <svg viewBox="0 0 24 24" className="w-[26px] h-[26px] fill-current">
+    <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10z" />
+  </svg>
+);
+
+const LinkedInIcon = () => (
+  <svg viewBox="0 0 24 24" className="w-[26px] h-[26px] fill-current">
+    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+  </svg>
+);
+
+const MubeIcon = () => (
+  <svg viewBox="0 0 24 24" className="w-[26px] h-[26px] fill-current">
+    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
+  </svg>
+);
+
+// Sidebar Component
+function Sidebar() {
+  const navItems = [
+    { icon: <ResumeIcon />, label: "Resume", href: "#" },
+    { icon: <EmailIcon />, label: "Email", href: "mailto:haadirazzak@gmail.com" },
+    { icon: <GithubIcon />, label: "Github", href: "https://github.com/haadir" },
+    { icon: <LinkedInIcon />, label: "LinkedIn", href: "https://linkedin.com/in/haadirazzak" },
+    { icon: <MubeIcon />, label: "Mube", href: "#", badge: "soon" },
+  ];
+
+  return (
+    <aside className="hidden md:flex flex-col items-end xl:items-start w-[88px] xl:w-[275px] h-screen sticky top-0 px-2 pt-4">
+      {/* Nav Items */}
+      <nav className="flex flex-col gap-1 w-full">
+        {navItems.map((item) => (
+          <a
+            key={item.label}
+            href={item.href}
+            target={item.href.startsWith("http") ? "_blank" : undefined}
+            rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
+            className="flex items-center gap-5 p-3 rounded-full hover:bg-white/10 transition-colors group xl:pr-6"
+          >
+            <span className="text-[#e7e9ea] group-hover:text-[#e7e9ea]">
+              {item.icon}
+            </span>
+            <span className="hidden xl:inline text-xl text-[#e7e9ea]">
+              {item.label}
+            </span>
+            {item.badge && (
+              <span className="hidden xl:inline text-[10px] bg-[#1d9bf0] text-white px-1.5 py-0.5 rounded-full font-bold uppercase">
+                {item.badge}
+              </span>
+            )}
+          </a>
+        ))}
+      </nav>
+    </aside>
+  );
 }
 
-const samplePosts: Post[] = [
+type TabType = "experiences" | "projects" | "highlights" | "media";
+
+interface Experience {
+  id: string;
+  company: string;
+  companyHandle: string;
+  role: string;
+  location: string;
+  period: string;
+  bullets: string[];
+  logo: string;
+  pinned?: boolean;
+}
+
+const experiences: Experience[] = [
   {
     id: "1",
-    author: {
-      name: "Haadi Razzak",
-      handle: "haadirazzak",
-      avatar: "/profile.jpg",
-      verified: true,
-    },
-    content: "Building the future of cloud infrastructure at AWS ☁️\n\nExcited to share that I've been working on some incredible distributed systems challenges. The scale we operate at is mind-blowing! 🚀",
-    timestamp: "2h",
-    stats: {
-      comments: 24,
-      retweets: 89,
-      likes: 342,
-      views: "12.4K",
-    },
+    company: "Amazon Web Services",
+    companyHandle: "aws",
+    role: "Software Development Engineer",
+    location: "Seattle, WA",
+    period: "Aug 2025 – Present",
+    logo: "☁️",
     pinned: true,
-  },
-  {
-    id: "2",
-    author: {
-      name: "Haadi Razzak",
-      handle: "haadirazzak",
-      avatar: "/profile.jpg",
-      verified: true,
-    },
-    content: "USC gave me the foundation, AWS is letting me build on it 🏛️➡️☁️\n\nGrateful for the journey from Trojan to engineer. Fight on! ✌️",
-    timestamp: "5h",
-    stats: {
-      comments: 18,
-      retweets: 45,
-      likes: 267,
-      views: "8.2K",
-    },
+    bullets: [
+      "Contributed within the Data Center Automation organization to build internal tooling for data center health monitoring, supporting operations across nearly 1,000 data centers worldwide",
+      "Created an internal, team-specific package using AWS CDK (Python and TypeScript) to standardize CloudWatch alarm creation as part of an Operational Excellence initiative, defining a consistent alarm taxonomy by service ownership and severity levels",
+      "Expanded the team's service ownership from commercial AWS to Amazon Dedicated Cloud (ADC), re-architecting systems and performing extensive validation to prevent alarm data leakage between private ADC data centers and commercial environments",
+    ],
   },
   {
     id: "3",
-    author: {
-      name: "Haadi Razzak",
-      handle: "haadirazzak",
-      avatar: "/profile.jpg",
-      verified: true,
-    },
-    content: "Hot take: The best code is the code you don't have to write.\n\nAbstractions, reusability, and knowing when NOT to build from scratch are underrated skills.",
-    timestamp: "1d",
-    stats: {
-      comments: 56,
-      retweets: 234,
-      likes: 1024,
-      views: "45.6K",
-    },
+    company: "BMC Software",
+    companyHandle: "bmc",
+    role: "Machine Learning Engineer Intern",
+    location: "Santa Clara, CA",
+    period: "May 2024 – Aug 2024",
+    logo: "🤖",
+    bullets: [
+      "Analyzed previous server configurations using time series modeling, achieving a 19% improvement in fleet health and a 15% reduction in server downtime through fine-tuning the Llama 2 model",
+      "Leveraged Generative AI with tools like Kustomize to enhance Kubernetes deployments, drawing on historical user data and metrics such as server response time, CPU usage, and container health status",
+    ],
+  },
+  {
+    id: "4",
+    company: "PayPal",
+    companyHandle: "paypal",
+    role: "Software Integration Engineering Intern",
+    location: "San Jose, CA",
+    period: "May 2023 – Aug 2023",
+    logo: "💳",
+    bullets: [
+      "Created a system using NodeJS and Braintree to smoothen the external app payment integration process for high volume merchants, enabling a smoother payment process for 100+ million users",
+      "Collaborated with 20+ merchants to enhance checkout page customization, optimizing payment interfaces by integrating fraud protection, alternative payment methods, and webhook automation",
+    ],
   },
 ];
 
-function PostCard({ post }: { post: Post }) {
+function ExperienceCard({ experience }: { experience: Experience }) {
   return (
     <article className="border-b border-[#2f3336] px-4 py-3 hover:bg-white/[0.03] transition-colors cursor-pointer">
-      {post.pinned && (
+      {experience.pinned && (
         <div className="flex items-center gap-3 ml-6 mb-1 text-[#71767b] text-[13px]">
           <PinIcon />
           <span className="font-bold">Pinned</span>
         </div>
       )}
       <div className="flex gap-3">
-        {/* Avatar */}
+        {/* Company Logo */}
         <div className="flex-shrink-0">
-          <div className="w-10 h-10 rounded-full bg-[#2f3336] overflow-hidden">
-            <div className="w-full h-full bg-gradient-to-br from-[#1d9bf0] to-[#1a8cd8] flex items-center justify-center text-white font-bold">
-              H
-            </div>
+          <div className="w-10 h-10 rounded-full bg-[#2f3336] overflow-hidden flex items-center justify-center text-xl">
+            {experience.logo}
           </div>
         </div>
         
@@ -186,11 +236,11 @@ function PostCard({ post }: { post: Post }) {
         <div className="flex-1 min-w-0">
           {/* Header */}
           <div className="flex items-center gap-1 flex-wrap">
-            <span className="font-bold text-[15px] hover:underline">{post.author.name}</span>
-            {post.author.verified && <VerifiedBadge />}
-            <span className="text-[#71767b] text-[15px]">@{post.author.handle}</span>
+            <span className="font-bold text-[15px] hover:underline">{experience.company}</span>
+            <VerifiedBadge />
+            <span className="text-[#71767b] text-[15px]">@{experience.companyHandle}</span>
             <span className="text-[#71767b] text-[15px]">·</span>
-            <span className="text-[#71767b] text-[15px] hover:underline">{post.timestamp}</span>
+            <span className="text-[#71767b] text-[15px]">{experience.period}</span>
             <div className="ml-auto">
               <button className="p-2 -m-2 rounded-full hover:bg-[#1d9bf0]/10 hover:text-[#1d9bf0] text-[#71767b] transition-colors">
                 <MoreIcon />
@@ -198,10 +248,21 @@ function PostCard({ post }: { post: Post }) {
             </div>
           </div>
           
-          {/* Post content */}
-          <div className="mt-1 text-[15px] leading-5 whitespace-pre-wrap">
-            {post.content}
+          {/* Role & Location */}
+          <div className="mt-1">
+            <span className="text-[15px] font-semibold text-[#1d9bf0]">{experience.role}</span>
+            <span className="text-[#71767b] text-[15px]"> · {experience.location}</span>
           </div>
+          
+          {/* Bullet Points */}
+          <ul className="mt-3 space-y-2">
+            {experience.bullets.map((bullet, index) => (
+              <li key={index} className="text-[15px] leading-5 text-[#e7e9ea] flex gap-2">
+                <span className="text-[#1d9bf0] mt-1.5 flex-shrink-0">•</span>
+                <span>{bullet}</span>
+              </li>
+            ))}
+          </ul>
           
           {/* Actions */}
           <div className="flex items-center justify-between mt-3 max-w-[425px] text-[#71767b]">
@@ -209,28 +270,24 @@ function PostCard({ post }: { post: Post }) {
               <div className="p-2 -m-2 rounded-full group-hover:bg-[#1d9bf0]/10 group-hover:text-[#1d9bf0] transition-colors">
                 <CommentIcon />
               </div>
-              <span className="text-[13px] group-hover:text-[#1d9bf0]">{post.stats.comments}</span>
             </button>
             
             <button className="flex items-center gap-2 group">
               <div className="p-2 -m-2 rounded-full group-hover:bg-[#00ba7c]/10 group-hover:text-[#00ba7c] transition-colors">
                 <RetweetIcon />
               </div>
-              <span className="text-[13px] group-hover:text-[#00ba7c]">{post.stats.retweets}</span>
             </button>
             
             <button className="flex items-center gap-2 group">
               <div className="p-2 -m-2 rounded-full group-hover:bg-[#f91880]/10 group-hover:text-[#f91880] transition-colors">
                 <HeartIcon />
               </div>
-              <span className="text-[13px] group-hover:text-[#f91880]">{post.stats.likes}</span>
             </button>
             
             <button className="flex items-center gap-2 group">
               <div className="p-2 -m-2 rounded-full group-hover:bg-[#1d9bf0]/10 group-hover:text-[#1d9bf0] transition-colors">
                 <ViewsIcon />
               </div>
-              <span className="text-[13px] group-hover:text-[#1d9bf0]">{post.stats.views}</span>
             </button>
             
             <div className="flex items-center gap-1">
@@ -249,10 +306,9 @@ function PostCard({ post }: { post: Post }) {
 }
 
 export default function Home() {
-  const [activeTab, setActiveTab] = useState<TabType>("posts");
+  const [activeTab, setActiveTab] = useState<TabType>("experiences");
   
   const tabs: { id: TabType; label: string }[] = [
-    { id: "posts", label: "Posts" },
     { id: "experiences", label: "Experiences" },
     { id: "projects", label: "Projects" },
     { id: "highlights", label: "Highlights" },
@@ -261,8 +317,13 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-black text-[#e7e9ea]">
-      {/* Main container */}
-      <div className="max-w-[600px] mx-auto border-x border-[#2f3336] min-h-screen">
+      {/* Layout wrapper */}
+      <div className="flex justify-center">
+        {/* Left Sidebar - hidden on mobile */}
+        <Sidebar />
+
+        {/* Main container */}
+        <main className="w-full max-w-[600px] border-x border-[#2f3336] min-h-screen">
         
         {/* Sticky Header */}
         <header className="sticky top-0 z-50 bg-black/80 backdrop-blur-md border-b border-[#2f3336]">
@@ -374,21 +435,14 @@ export default function Home() {
           </div>
         </nav>
 
-        {/* Posts Feed */}
+        {/* Feed */}
         <div>
-          {activeTab === "posts" && (
+          {activeTab === "experiences" && (
             <>
-              {samplePosts.map((post) => (
-                <PostCard key={post.id} post={post} />
+              {experiences.map((exp) => (
+                <ExperienceCard key={exp.id} experience={exp} />
               ))}
             </>
-          )}
-          
-          {activeTab === "experiences" && (
-            <div className="p-8 text-center text-[#71767b]">
-              <p className="text-xl">💼</p>
-              <p className="mt-2">Work experiences coming soon...</p>
-            </div>
           )}
           
           {activeTab === "projects" && (
@@ -415,6 +469,10 @@ export default function Home() {
         
         {/* Bottom padding for scroll */}
         <div className="h-20" />
+      </main>
+
+        {/* Right spacer for symmetry on large screens */}
+        <div className="hidden lg:block w-[350px]" />
       </div>
     </div>
   );
